@@ -1,4 +1,4 @@
-# Optimal Control — Week 1 Lecture Notes
+# System theory — Week 1 Lecture Notes
 
 Chapter 1, **Static Optimization**: gradients, Hessians, unconstrained and equality-constrained optimization, Lagrange multipliers, and introductory numerical methods.
 

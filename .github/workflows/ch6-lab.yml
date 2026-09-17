@@ -1,0 +1,33 @@
+name: CH6 offline lab
+on:
+  push:
+    paths:
+      - 'hello-agents-ch6-lab/**'
+      - '.github/workflows/ch6-lab.yml'
+  pull_request:
+    paths:
+      - 'hello-agents-ch6-lab/**'
+      - '.github/workflows/ch6-lab.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: hello-agents-ch6-lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: hello-agents-ch6-lab/requirements-lock.txt
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python -X utf8 scripts/verify_environment.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ch6-verification
+          path: hello-agents-ch6-lab/outputs/

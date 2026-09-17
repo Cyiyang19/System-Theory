@@ -39,7 +39,7 @@ Chapter 1 builds the static tools used later when states and controls change ove
 | $f_x$, $f_u$ | $n\times n$, $n\times m$ | constraint Jacobians |
 | $\lambda$ | $n\times1$ | Lagrange multiplier |
 
-An increment $du$ means a small **change** in $u$. The new point is $u+du$; these three expressions are different objects. Likewise, $x+dx$ is the new state, while $dx$ is only its change.（$dx$ 不是另一個狀態，而是狀態的微小變化。）
+An increment $du$ means a small **change** in $u$. The new point is $u+du$; these three expressions are different objects. Likewise, $x+dx$ is the new state, while $dx$ is only its change.（這裡的 $dx$ 不是另一個狀態，而是狀態的微小變化。）
 
 ## 2. Unconstrained optimization
 
@@ -99,7 +99,7 @@ This is a **necessary condition** for a smooth interior local minimum. It is not
 | $L_{uu}$ indefinite | saddle point |
 | $L_{uu}$ semidefinite or singular | second-order test is inconclusive; inspect higher-order terms or the function directly |
 
-Here $L_{uu}\succ0$ means $v^TL_{uu}v>0$ for **every nonzero** direction $v$. A local result concerns nearby points; a global minimum additionally requires comparison with all feasible points.（$L_u=0$ 只表示「坡度暫時為零」；還要看各方向是向上彎、向下彎，或兩者都有。）
+Here $L_{uu}\succ0$ means $v^TL_{uu}v>0$ for **every nonzero** direction $v$. A local result concerns nearby points; a global minimum additionally requires comparison with all feasible points.（這裡的 $L_u=0$ 只表示「坡度暫時為零」；還要看各方向是向上彎、向下彎，或兩者都有。）
 
 **Worked example C — saddle.** If $L(u_1,u_2)=u_1^2-u_2^2$, then
 
@@ -152,7 +152,7 @@ The source's two-dimensional example uses the symmetric matrix $Q$ with rows $(1
 
 ## 3. Equality-constrained optimization
 
-### 3.1 Feasible changes couple $x$ and $u$
+### 3.1 Feasible changes couple state and control
 
 **PDF P13–P15, Section 1.2.** The new problem is
 
@@ -187,7 +187,7 @@ $$
 \qquad f_x^{-T}:=(f_x^{-1})^T.
 $$
 
-This is a **first-order necessary condition**, given the smoothness and nonsingular-$f_x$ assumptions. The direct gradient $L_u$ alone is insufficient because changing $u$ also changes $x$.（調整控制量時，狀態會被限制式牽動；要把兩者的成本變化一起算。）
+This is a **first-order necessary condition**, given smoothness and invertible $f_x$. The direct gradient $L_u$ alone is insufficient because changing $u$ also changes $x$.（調整控制量時，狀態會被限制式牽動；要把兩者的成本變化一起算。）
 
 ### 3.2 Lagrange multiplier and Hamiltonian
 

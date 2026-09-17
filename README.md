@@ -1,6 +1,6 @@
 # System theory —  Lecture Notes
 
-Chapter 1, **Static Optimization**: gradients, Hessians, unconstrained and equality-constrained optimization, Lagrange multipliers, and introductory numerical methods.
+Chapter 1, **Static Optimization**: gradients, Hessians, unconstrained and equality-constrained optimization, Lagrange multipliers, and introductory numerical methods. 
 
 - [Read the Week 1 lecture notes](week1_static_optimization_notes.md)
 
